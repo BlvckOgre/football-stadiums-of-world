@@ -134,6 +134,38 @@ Generate stats for sports journalists or social media analysis.
 # System Architecture
 ![system_architecture.png](assets%2Fsystem_architecture.png)
 
+# System Architecture Breakdown
+### 1. Data Source: Wikipedia
+You are scraping football club data from Wikipedia using Python + BeautifulSoup in an Airflow DAG.
+
+Data is cleaned and pushed into a PostgreSQL database (containerized via Docker).
+
+### 2. ETL Orchestration: Apache Airflow
+Runs in Docker.
+
+DAGs schedule web scraping and push data to PostgreSQL daily.
+
+Airflow acts as the controller of the entire data pipeline.
+
+### 3. Storage: Azure Data Lake Gen2
+PostgreSQL acts as staging; final structured data is moved to Azure Data Lake Gen2 via:
+
+   Azure Data Factory (ADF) pipeline, which connects to PostgreSQL and writes to ADLS in CSV/Parquet.
+
+### 4. Processing Layer: Databricks
+Connects to ADLS Gen2, reads raw files, cleans them using PySpark, aggregates, and writes back processed data.
+
+### 5. BI Layer: Tableau / Power BI / Looker Studio
+Directly connects to Azure Data Lake Gen2 or processed data output from Databricks.
+
+Dashboards visualize:
+
+   Number of clubs per country.
+
+   Geographic distribution.
+
+   Time-based trends if applicable.
+
 # Requirements
 - Python 3.9 (minimum)
 - Docker
