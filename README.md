@@ -39,29 +39,35 @@ A reproducible and extensible solution using open-source tools.
 
 ## 4.Pipeline Orchestration:
 
-   ### Build DAGs in Apache Airflow 2.6 to automate:
+    Build DAGs in Apache Airflow 2.6 to automate:
    Scraping data from Wikipedia on a schedule.
+   
    Cleaning and transforming data.
+   
    Loading data into PostgreSQL.
    
-   ### Handle dependencies, retries, logging, and task monitoring.
+    Handle dependencies, retries, logging, and task monitoring.
 
 ## 5.Containerization:
 
-   ### Use Docker to containerize:
+    Use Docker to containerize:
 
    Python scraper and transformer.
+   
    PostgreSQL instance.
+   
    Apache Airflow environment.
 
-   ### Define services using docker-compose.
+    Define services using docker-compose.
 
 ## 6.Exploratory Data Analysis (EDA):
 
-   ### Use Jupyter Notebooks or Streamlit to explore:
+    Use Jupyter Notebooks or Streamlit to explore:
 
    Team performance trends.
+   
    Historical league outcomes.
+   
    Goal scoring patterns.
 
 ## 7.Documentation & Automation:
@@ -75,14 +81,23 @@ A reproducible and extensible solution using open-source tools.
 
 # Tools and Technologies:
 Component	Tools/Tech Stack
+
 Language	Python 3.9
+
 Web Scraping	BeautifulSoup, Requests
+
 Orchestration	Apache Airflow 2.6
+
 Storage	PostgreSQL 14+
+
 Containerization	Docker, Docker Compose
+
 Data Processing	Pandas
+
 EDA & Notebooks	JupyterLab, Streamlit (optional)
+
 Deployment	GitHub, Docker Hub
+
 Monitoring	Airflow UI, Logs
 
 # Expected Deliverables:
