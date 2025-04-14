@@ -82,23 +82,25 @@ A reproducible and extensible solution using open-source tools.
 # Tools and Technologies:
 Component	Tools/Tech Stack
 
-Language	Python 3.9
+Language:   	Python 3.9
 
-Web Scraping	BeautifulSoup, Requests
+Web Scraping:   	BeautifulSoup, Requests
 
-Orchestration	Apache Airflow 2.6
+Orchestration:   	Apache Airflow 2.6
 
-Storage	PostgreSQL 14+
+Raw Data Storage:   	PostgreSQL 14+
 
-Containerization	Docker, Docker Compose
+Containerization:   	Docker, Docker Compose
 
-Data Processing	Pandas
+Data Processing:   	Pandas
 
-EDA & Notebooks	JupyterLab, Streamlit (optional)
+Processed Data Storage:    Azure Data Lake Gen2
 
-Deployment	GitHub, Docker Hub
+EDA & Notebooks:   	JupyterLab, Streamlit (optional)
 
-Monitoring	Airflow UI, Logs
+Deployment:    	GitHub, Docker Hub
+
+Monitoring:    	Airflow UI, Logs
 
 # Expected Deliverables:
 Cleaned and structured PostgreSQL database containing global football data.
