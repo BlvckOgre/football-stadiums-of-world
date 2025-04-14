@@ -381,7 +381,7 @@ A .twbx file contains the Tableau workbook (.twb) along with the data sources, i
 
    Launch Tableau Public Desktop or Tableau Desktop
 
-   Go to File > Open, select your .twbx file
+   Go to File > Open, select your football-dashboard.twbx file
 
 ### Step 3: Publish to Tableau Public
 
@@ -407,7 +407,7 @@ A .twbx file contains the Tableau workbook (.twb) along with the data sources, i
 
 ### Step 2: Open .twbx in Tableau Desktop
 
-   Go to File > Open, select your .twbx
+   Go to File > Open, select your football-dashboard.twbx
 
 ### Step 3: Sign In to Tableau Server/Cloud
 
