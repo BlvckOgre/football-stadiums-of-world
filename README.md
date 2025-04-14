@@ -172,6 +172,30 @@ Dashboards visualize:
 - PostgreSQL
 - Apache Airflow 2.6 (minimum)
 
+# Project Folder Structure
+   ```bash
+
+football_data_pipeline/
+│
+├── docker/
+│   ├── airflow/                  # Airflow config & DAGs
+│   │   ├── dags/
+│   │   └── docker-compose.yml
+│   └── postgres/                 # PostgreSQL config
+│       └── init.sql
+│
+├── data_scraper/                # Python scraping scripts
+│   ├── scrape_wikipedia.py
+│   └── utils.py
+│
+├── notebooks/                   # Databricks notebooks
+│   └── transform_football_data.py
+│
+├── adf/                         # Azure Data Factory config (JSON)
+├── tableau/                     # Tableau workbook (.twbx)
+└── README.md
+   ```
+
 # Getting Started
 
 1. Clone the repository.
@@ -192,11 +216,243 @@ Dashboards visualize:
    ``` 
 2. Trigger the DAG on the Airflow UI.
 
+
+### 2. Dockerized Local Setup
+A. PostgreSQL in Docker
+docker/postgres/init.sql (create schema/tables)
+
+   ``` sql
+CREATE TABLE clubs (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    country TEXT,
+    league TEXT
+);
+   ```
+
+docker-compose.yml (PostgreSQL + Airflow)
+
+   ``` yaml
+
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: football
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: football_db
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  airflow:
+    image: apache/airflow:2.6.0
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+   ```
+
+### 3. Python Web Scraper
+
+data_scraper/scrape_wikipedia.py
+
+   ``` python
+
+import requests
+from bs4 import BeautifulSoup
+import psycopg2
+
+   ```
+
+### 4. Apache Airflow DAG
+
+airflow/dags/football_dag.py
+
+   ``` python
+
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+from datetime import datetime
+
+   ```
+
+### 5. Azure Data Lake Gen2 Setup
+A. Create ADLS Gen2
+   ``` bash
+
+az storage account create --name <yourStorageAccount> --resource-group <yourRG> --sku Standard_LRS --kind StorageV2 --hierarchical-namespace true
+   ``` 
+B. Create Container
+   ``` bash
+
+az storage container create --name raw --account-name <yourStorageAccount>
+   ``` 
+### 6. Azure Data Factory
+Create a pipeline that:
+
+Connects to PostgreSQL
+
+Pulls cleaned data
+
+Writes it as CSV to Azure Data Lake Gen2
+
+You’ll configure:
+
+Linked Service (PostgreSQL)
+
+Linked Service (ADLS)
+
+Dataset (Postgres source)
+
+Dataset (ADLS CSV sink)
+
+Copy Activity
+
+### 7. Databricks Setup
+A. Upload Notebook
+   ``` python
+
+# Databricks PySpark
+df = spark.read.option("header", "true").csv("abfss://raw@<storage>.dfs.core.windows.net/clubs.csv")
+df_clean = df.dropna()
+df_clean.write.mode("overwrite").parquet("abfss://cleaned@<storage>.dfs.core.windows.net/clubs_cleaned")
+Configure your cluster with Azure Data Lake Storage credential passthrough
+   ``` 
+
+### 8. BI Layer
+A. Tableau / Power BI
+Connect to:
+
+Azure Data Lake Gen2 using Azure Blob Connector
+
+OR directly to processed data in Databricks
+
+Use .twbx to create and publish dashboards
+
+B. Sharing
+Tableau Public: Upload .twbx
+
+Tableau Server/Cloud: Publish securely
+
+Power BI: Publish to Power BI Service
+
+### 9. Optional: Monitoring & CI/CD
+
+Monitor Airflow DAGs (alerts via Slack/Email)
+
+Use GitHub Actions or Azure DevOps for:
+
+DAG updates
+
+Notebook deployment
+
+Infra provisioning with Terraform
+
+
 # How It Works
 1. Fetches data from Wikipedia.
 2. Cleans the data.
 3. Transforms the data.
 4. Pushes the data to Azure Data Lake.
+
+
+#### Here’s a step-by-step breakdown of how to relaunch a .twbx file (Tableau Packaged Workbook) so a third party can view and interact with your dashboard:
+
+### What is a .twbx file?
+A .twbx file contains the Tableau workbook (.twb) along with the data sources, images, and custom calculations — all in one portable package. Perfect for sharing!
+
+## Option 1: Share via Tableau Public (Free but Public)
+### Step 1: Create a Tableau Public Account
+
+   Go to https://public.tableau.com
+
+   Sign up for a free account
+
+### Step 2: Open .twbx in Tableau Desktop or Tableau Public
+
+   Launch Tableau Public Desktop or Tableau Desktop
+
+   Go to File > Open, select your .twbx file
+
+### Step 3: Publish to Tableau Public
+
+   Click File > Save to Tableau Public As...
+
+   It will prompt login to your Tableau Public account
+
+   Uploads your dashboard to the public gallery
+
+### Step 4: Share the Link
+
+   Once uploaded, you'll get a shareable link (or embed code)
+
+   Anyone with the link can view the dashboard online
+
+
+
+## Option 2: Share via Tableau Server or Tableau Cloud (Private/Enterprise)
+
+### Step 1: Get Access to a Tableau Server or Tableau Cloud Site
+
+   If your org uses Tableau Server or Cloud, ensure you're a licensed user
+
+### Step 2: Open .twbx in Tableau Desktop
+
+   Go to File > Open, select your .twbx
+
+### Step 3: Sign In to Tableau Server/Cloud
+
+   Click Server > Sign In
+
+   Enter your organization's server URL and credentials
+
+### Step 4: Publish Workbook
+
+   Click Server > Publish Workbook
+
+   Select the project (folder) on the server
+
+   Configure:
+
+   Data refresh options
+
+   Permissions for 3rd-party viewers (Viewer role, access rights)
+
+### Step 5: Share Access
+
+   Send the generated dashboard URL
+
+   The third-party will need either:
+
+   Viewer credentials
+
+   SAML/SSO login depending on your organization’s access rules
+
+## Option 3: Local Sharing (Offline Viewing)
+
+### Step 1: Send the .twbx File
+   Send the file via Google Drive, Dropbox, etc.
+
+### Step 2: Ask the Third Party to Install Tableau Reader
+   Download from https://www.tableau.com/products/reader (free)
+
+   They can open the .twbx locally without needing internet
+
+   Limitation: Interactivity is limited compared to Tableau Server/Cloud, and no real-time collaboration.
+
+   Best Practice Recommendation
+   If you're working on a professional or client-facing data pipeline:
+
+   Use Tableau Cloud for private dashboards and regular refreshes
+
+   Or Tableau Public for quick public portfolio demos
 
 # Future Enhancements:
 Add scraping logic for non-Wikipedia sources (e.g., FBref, Transfermarkt).
