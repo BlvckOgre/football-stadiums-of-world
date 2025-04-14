@@ -16,6 +16,69 @@ Automation of data scraping, cleaning, and transformation.
 
 A reproducible and extensible solution using open-source tools.
 
+## Project Objectives:
+1.Data Ingestion:
+
+   Use Python 3.9 to scrape structured football data (league tables, player stats, match results) from Wikipedia.
+
+   Target the world’s top football competitions: EPL, La Liga, Serie A, Bundesliga, Ligue 1, UEFA Champions League, FIFA World Cup, etc.
+
+2.Data Cleaning & Transformation:
+
+   Parse and clean HTML tables into standardized pandas DataFrames.
+
+   Normalize data formats (dates, scores, club names, etc.) for consistency.
+
+   Perform feature engineering (e.g., goal differences, points per game).
+
+3.Data Storage:
+
+   Store processed data in a structured PostgreSQL relational database.
+
+   Create normalized schema (e.g., tables for Teams, Matches, Players, Competitions).
+
+4.Pipeline Orchestration:
+
+   Build DAGs in Apache Airflow 2.6 to automate:
+
+     Scraping data from Wikipedia on a schedule.
+
+     Cleaning and transforming data.
+
+     Loading data into PostgreSQL.
+
+   Handle dependencies, retries, logging, and task monitoring.
+
+5.Containerization:
+
+   Use Docker to containerize:
+
+     Python scraper and transformer.
+
+     PostgreSQL instance.
+
+     Apache Airflow environment.
+
+   Define services using docker-compose.
+
+6.Exploratory Data Analysis (EDA):
+
+   Use Jupyter Notebooks or Streamlit to explore:
+
+     Team performance trends.
+
+     Historical league outcomes.
+
+     Goal scoring patterns.
+
+7.Documentation & Automation:
+
+   Write clean, reusable Python code with comments.
+
+   Automate local setup and deployment using Docker.
+
+   Provide README with instructions and architecture overview.
+
 ## Table of Contents
 
 1. [System Architecture](#system-architecture)
