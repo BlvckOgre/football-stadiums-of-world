@@ -140,7 +140,7 @@ Generate stats for sports journalists or social media analysis.
 
 
 # System Architecture
-![system_architecture.png](assets%2Fsystem_architecture.png)
+![system_architecture.PNG](assets%2Fsystem_architecture.PNG)
 
 ## System Architecture Breakdown
 ### 1. Data Ingestion Layer – Web Scraping (Python 3.9)
