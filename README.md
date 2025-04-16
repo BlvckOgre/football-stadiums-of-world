@@ -128,7 +128,7 @@ Generate stats for sports journalists or social media analysis.
 
 1. [System Architecture](#system-architecture)
 2. [Requirements](#requirements)
-3. [Folder Structure](#folder-structure)
+3. [Project Folder Structure](#project-folder-structure)
 4. [Environment Setup](#environment-setup)
 5. [Infrastructure Deployment (Terraform)](#infrastructure-deployment-terraform)
 6. [Data Pipeline Setup (Airflow)](#data-pipeline-setup-airflow)
@@ -141,7 +141,7 @@ Generate stats for sports journalists or social media analysis.
 # System Architecture
 ![system_architecture.png](assets%2Fsystem_architecture.png)
 
-# System Architecture Breakdown
+## System Architecture Breakdown
 ### 1. Data Ingestion Layer – Web Scraping (Python 3.9)
 
 **Tool:** Python 3.9
@@ -290,7 +290,171 @@ football-stadiums-of-world/
 
    ```
 
-# Getting Started
+# Environment Setup
+
+> Required: Docker, Azure CLI, Terraform, Python 3.9
+
+### 1. Clone the repo
+
+```bash
+
+git clone https://github.com/yourusername/football_data_engineering_project.git
+cd football_data_engineering_project
+```
+2. Setup Python virtual environment
+
+```bash
+python3.9 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+# Infrastructure Deployment (Terraform)
+
+### 1. Authenticate Azure CLI
+
+```bash
+az login
+az ad sp create-for-rbac --name terraform-sp --role Contributor --scopes /subscriptions/YOUR_SUB_ID
+```
+### 2. Deploy Azure Infrastructure
+
+```bash
+
+cd terraform/
+terraform init
+terraform plan
+terraform apply
+```
+Terraform will deploy:
+
+* Resource Group
+
+* Data Lakes (raw + curated)
+
+* Data Factory
+
+* Databricks Workspace
+
+* Role assignments and IAM
+
+# Data Pipeline Setup (Airflow)
+
+### 1. Launch Docker-based Airflow
+
+```bash
+
+cd docker/
+docker-compose up airflow-init
+docker-compose up
+```
+
+Airflow will:
+
+* Run the DAGs from dags/
+
+* Use scripts/ to scrape Wikipedia and insert data into Data Lake
+
+# ETL Flow
+
+1. web_scraper.py scrapes latest football club stats from Wikipedia.
+
+2. Airflow DAG schedules scrape every 24 hours.
+
+3. Raw data saved into Azure Data Lake Gen2.
+
+4. ADF pipeline processes and stages the data.
+
+5. Curated datasets are created and written to second Data Lake.
+
+6. Databricks notebook performs advanced transformations (ranking, comparisons).
+
+7. Dashboards connect to curated output.
+
+# Analytics & Dashboard
+Connect Power BI, Tableau, or Looker Studio to:
+
+* Curated storage layer
+
+* Or Databricks SQL Endpoint
+
+Use assets/ for logos or visual templates.
+
+#### Here’s a step-by-step breakdown of how to relaunch a .twbx file (Tableau Packaged Workbook) so a third party can view and interact with your dashboard:
+
+### What is a .twbx file?
+A .twbx file contains the Tableau workbook (.twb) along with the data sources, images, and custom calculations — all in one portable package. Perfect for sharing!
+
+## Option 1: Share via Tableau Public (Free but Public)
+### Step 1: Create a Tableau Public Account
+
+   Go to https://public.tableau.com
+
+   Sign up for a free account
+
+### Step 2: Open .twbx in Tableau Desktop or Tableau Public
+
+   Launch Tableau Public Desktop or Tableau Desktop
+
+   Go to File > Open, select your football-dashboard.twbx file
+
+### Step 3: Publish to Tableau Public
+
+   Click File > Save to Tableau Public As...
+
+   It will prompt login to your Tableau Public account
+
+   Uploads your dashboard to the public gallery
+
+### Step 4: Share the Link
+
+   Once uploaded, you'll get a shareable link (or embed code)
+
+   Anyone with the link can view the dashboard online
+
+
+
+## Option 2: Share via Tableau Server or Tableau Cloud (Private/Enterprise)
+
+### Step 1: Get Access to a Tableau Server or Tableau Cloud Site
+
+   If your org uses Tableau Server or Cloud, ensure you're a licensed user
+
+### Step 2: Open .twbx in Tableau Desktop
+
+   Go to File > Open, select your football-dashboard.twbx
+
+### Step 3: Sign In to Tableau Server/Cloud
+
+   Click Server > Sign In
+
+   Enter your organization's server URL and credentials
+
+### Step 4: Publish Workbook
+
+   Click Server > Publish Workbook
+
+   Select the project (folder) on the server
+
+   Configure:
+
+   Data refresh options
+
+   Permissions for 3rd-party viewers (Viewer role, access rights)
+
+### Step 5: Share Access
+
+   Send the generated dashboard URL
+
+   The third-party will need either:
+
+   Viewer credentials
+
+   SAML/SSO login depending on your organization’s access rules
+
+
+
+# Extra info incase you get lost (only use if the first setup goes wrong and need a second method)
+> This is for a more direct set up/ step-by-step up instructions
 
 1. Clone the repository.
    ```bash
@@ -302,7 +466,7 @@ football-stadiums-of-world/
    pip install -r requirements.txt
    ```
    
-# Running the Code With Docker
+## Running the Code With Docker
 
 1. Start your services on Docker with
    ```bash
