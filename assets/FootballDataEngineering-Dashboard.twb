@@ -1,0 +1,1174 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20251.25.0313.2002                               -->
+<workbook original-version='18.1' source-build='2025.1.0 (20251.25.0313.2002)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MapboxVectorStylesAndLayers />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='stadium_cleaned_2023-10-01_22_37_47.376621' inline='true' name='federated.09b9rka1n3q36o1clh6td15n720y' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='stadium_cleaned_2023-10-01_22_37_47.376621' name='textscan.1l2olbp0h0ogyg14c39dx1vdqd5u'>
+            <connection class='textscan' directory='C:/Users/dimak/Downloads/FootballDataEngineering-main/FootballDataEngineering-main/data' filename='stadium_cleaned_2023-10-01_22_37_47.376621.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1l2olbp0h0ogyg14c39dx1vdqd5u' name='stadium_cleaned_2023-10-01_22_37_47.376621.csv' table='[stadium_cleaned_2023-10-01_22_37_47.376621#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_ZA' separator=','>
+            <column datatype='integer' name='rank' ordinal='0' />
+            <column datatype='string' name='stadium' ordinal='1' />
+            <column datatype='integer' name='capacity' ordinal='2' />
+            <column datatype='string' name='region' ordinal='3' />
+            <column datatype='string' name='country' ordinal='4' />
+            <column datatype='string' name='city' ordinal='5' />
+            <column datatype='string' name='images' ordinal='6' />
+            <column datatype='string' name='home_team' ordinal='7' />
+            <column datatype='string' name='location' ordinal='8' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;R&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_ZA&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rank</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rank]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>rank</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stadium</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stadium]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>stadium</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>capacity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[capacity]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>capacity</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[region]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>region</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>images</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[images]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>images</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>home_team</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[home_team]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>home_team</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location]</local-name>
+            <parent-name>[stadium_cleaned_2023-10-01_22_37_47.376621.csv]</parent-name>
+            <remote-alias>location</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='RegionCount' datatype='integer' name='[Calculation_4489455516772052992]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([stadium])' />
+      </column>
+      <column caption='stadium_cleaned_2023-10-01_22_37_47.376621.csv' datatype='table' name='[__tableau_internal_object_id__].[stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D]' role='measure' type='quantitative' />
+      <column caption='Capacity' datatype='integer' name='[capacity]' role='measure' type='quantitative' />
+      <column caption='City - Split 1' datatype='string' name='[city - Split 1]' role='dimension' semantic-role='[City].[Name]' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.09b9rka1n3q36o1clh6td15n720y].[city]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [city], &quot;,&quot;, 1 ) )' />
+      </column>
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal'>
+        <semantic-values semantic-role='[Country].[Name]'>
+          <semantic-value key='&quot;England&quot;' value='&quot;United Kingdom&quot;' />
+          <semantic-value key='&quot;Scotland&quot;' value='&quot;United Kingdom&quot;' />
+          <semantic-value key='&quot;Wales&quot;' value='&quot;United Kingdom&quot;' />
+        </semantic-values>
+      </column>
+      <column caption='Home Team' datatype='string' name='[home_team]' role='dimension' type='nominal' />
+      <column caption='Images' datatype='string' name='[images]' role='dimension' semantic-role='[URL]' type='nominal' />
+      <column caption='Location' datatype='string' name='[location]' role='dimension' type='nominal' />
+      <column caption='Rank' datatype='integer' name='[rank]' role='measure' type='quantitative' />
+      <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+      <column caption='Stadium' datatype='string' name='[stadium]' role='dimension' type='nominal' />
+      <drill-paths>
+        <drill-path name='country, city'>
+          <field>[country]</field>
+          <field>[city]</field>
+        </drill-path>
+      </drill-paths>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='stadium_cleaned_2023-10-01_22_37_47.376621.csv' id='stadium_cleaned_2023-10-01_22_37_47.376621.csv_58002140A41B40E6954425F89A841A8D'>
+            <properties context=''>
+              <relation connection='textscan.1l2olbp0h0ogyg14c39dx1vdqd5u' name='stadium_cleaned_2023-10-01_22_37_47.376621.csv' table='[stadium_cleaned_2023-10-01_22_37_47.376621#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_ZA' separator=','>
+                  <column datatype='integer' name='rank' ordinal='0' />
+                  <column datatype='string' name='stadium' ordinal='1' />
+                  <column datatype='integer' name='capacity' ordinal='2' />
+                  <column datatype='string' name='region' ordinal='3' />
+                  <column datatype='string' name='country' ordinal='4' />
+                  <column datatype='string' name='city' ordinal='5' />
+                  <column datatype='string' name='images' ordinal='6' />
+                  <column datatype='string' name='home_team' ordinal='7' />
+                  <column datatype='string' name='location' ordinal='8' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Geographical Distribution of Stadiums'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='stadium_cleaned_2023-10-01_22_37_47.376621' name='federated.09b9rka1n3q36o1clh6td15n720y' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.09b9rka1n3q36o1clh6td15n720y'>
+            <column caption='City - Split 1' datatype='string' name='[city - Split 1]' role='dimension' semantic-role='[City].[Name]' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.09b9rka1n3q36o1clh6td15n720y].[city]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [city], &quot;,&quot;, 1 ) )' />
+            </column>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal'>
+              <semantic-values semantic-role='[Country].[Name]'>
+                <semantic-value key='&quot;England&quot;' value='&quot;United Kingdom&quot;' />
+                <semantic-value key='&quot;Scotland&quot;' value='&quot;United Kingdom&quot;' />
+                <semantic-value key='&quot;Wales&quot;' value='&quot;United Kingdom&quot;' />
+              </semantic-values>
+            </column>
+            <column caption='Images' datatype='string' name='[images]' role='dimension' semantic-role='[URL]' type='nominal' />
+            <column-instance column='[city - Split 1]' derivation='None' name='[none:city - Split 1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[images]' derivation='None' name='[none:images:nk]' pivot='key' type='nominal' />
+            <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[stadium]' derivation='None' name='[none:stadium:nk]' pivot='key' type='nominal' />
+            <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+            <column caption='Stadium' datatype='string' name='[stadium]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.09b9rka1n3q36o1clh6td15n720y].[Longitude (generated)]' field-type='quantitative' max='25379496.50001505' min='-25952171.472416058' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.09b9rka1n3q36o1clh6td15n720y].[Latitude (generated)]' field-type='quantitative' max='9976182.8433661088' min='-6582419.2349010557' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]' />
+              <lod column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:country:nk]' />
+              <lod column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:city - Split 1:nk]' />
+              <lod column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:images:nk]' />
+              <lod column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:stadium:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.09b9rka1n3q36o1clh6td15n720y].[Latitude (generated)]</rows>
+        <cols>[federated.09b9rka1n3q36o1clh6td15n720y].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{D606722D-F7D2-44F1-AA65-41A4396D01CF}' />
+    </worksheet>
+    <worksheet name='Stadiums Location By Regions'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='stadium_cleaned_2023-10-01_22_37_47.376621' name='federated.09b9rka1n3q36o1clh6td15n720y' />
+          </datasources>
+          <datasource-dependencies datasource='federated.09b9rka1n3q36o1clh6td15n720y'>
+            <column caption='RegionCount' datatype='integer' name='[Calculation_4489455516772052992]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNT([stadium])' />
+            </column>
+            <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_4489455516772052992]' derivation='User' name='[pcto:usr:Calculation_4489455516772052992:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+            <column caption='Stadium' datatype='string' name='[stadium]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_4489455516772052992]' derivation='User' name='[usr:Calculation_4489455516772052992:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]' />
+              <text column='[federated.09b9rka1n3q36o1clh6td15n720y].[pcto:usr:Calculation_4489455516772052992:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.09b9rka1n3q36o1clh6td15n720y].[usr:Calculation_4489455516772052992:qk]</rows>
+        <cols>[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]</cols>
+      </table>
+      <simple-id uuid='{0C11220E-7D5A-46D2-B3FB-0BEE6E3706B2}' />
+    </worksheet>
+    <worksheet name='Top 10 Stadiums By Capacity'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='stadium_cleaned_2023-10-01_22_37_47.376621' name='federated.09b9rka1n3q36o1clh6td15n720y' />
+          </datasources>
+          <datasource-dependencies datasource='federated.09b9rka1n3q36o1clh6td15n720y'>
+            <column caption='Capacity' datatype='integer' name='[capacity]' role='measure' type='quantitative' />
+            <column-instance column='[stadium]' derivation='None' name='[none:stadium:nk]' pivot='key' type='nominal' />
+            <column caption='Stadium' datatype='string' name='[stadium]' role='dimension' type='nominal' />
+            <column-instance column='[capacity]' derivation='Sum' name='[sum:capacity:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:stadium:nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([capacity])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:stadium:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <computed-sort column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:stadium:nk]' direction='DESC' using='[federated.09b9rka1n3q36o1clh6td15n720y].[sum:capacity:qk]' />
+          <slices>
+            <column>[federated.09b9rka1n3q36o1clh6td15n720y].[none:stadium:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.09b9rka1n3q36o1clh6td15n720y].[sum:capacity:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.09b9rka1n3q36o1clh6td15n720y].[none:stadium:nk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{946D0ADE-5364-4A83-AB94-10655A939CC9}' />
+    </worksheet>
+    <worksheet name='Top 10 Stadiums By Rank'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='stadium_cleaned_2023-10-01_22_37_47.376621' name='federated.09b9rka1n3q36o1clh6td15n720y' />
+          </datasources>
+          <datasource-dependencies datasource='federated.09b9rka1n3q36o1clh6td15n720y'>
+            <column-instance column='[rank]' derivation='None' name='[none:rank:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[stadium]' derivation='None' name='[none:stadium:nk]' pivot='key' type='nominal' />
+            <column caption='Rank' datatype='integer' name='[rank]' role='measure' type='quantitative' />
+            <column caption='Stadium' datatype='string' name='[stadium]' role='dimension' type='nominal' />
+            <column-instance column='[rank]' derivation='Sum' name='[sum:rank:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:rank:qk]' included-values='in-range'>
+            <min>1</min>
+            <max>10</max>
+          </filter>
+          <computed-sort column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:stadium:nk]' direction='ASC' using='[federated.09b9rka1n3q36o1clh6td15n720y].[sum:rank:qk]' />
+          <slices>
+            <column>[federated.09b9rka1n3q36o1clh6td15n720y].[none:rank:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.09b9rka1n3q36o1clh6td15n720y].[sum:rank:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.09b9rka1n3q36o1clh6td15n720y].[none:stadium:nk]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{57FE7A71-144C-4D6A-B81B-F251BA1E415D}' />
+    </worksheet>
+    <worksheet name='Top Stadiums By Capacity '>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='stadium_cleaned_2023-10-01_22_37_47.376621' name='federated.09b9rka1n3q36o1clh6td15n720y' />
+          </datasources>
+          <datasource-dependencies datasource='federated.09b9rka1n3q36o1clh6td15n720y'>
+            <column caption='Capacity' datatype='integer' name='[capacity]' role='measure' type='quantitative' />
+            <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[capacity]' derivation='Sum' name='[pcto:sum:capacity:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+            <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='337' />
+            <format attr='height' value='312' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <encodings>
+              <color column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]' />
+              <text column='[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]' />
+              <text column='[federated.09b9rka1n3q36o1clh6td15n720y].[pcto:sum:capacity:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{E912E8E0-133D-4139-A1C6-093462240B95}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97026' id='7' param='horz' type-v2='layout-flow' w='98580' x='710' y='1487'>
+            <zone h='97026' id='5' type-v2='layout-basic' w='98580' x='710' y='1487'>
+              <zone h='59348' id='3' name='Geographical Distribution of Stadiums' w='88909' x='710' y='39165'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='37678' id='9' name='Top Stadiums By Capacity ' w='24648' x='74642' y='1487'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='37678' id='10' name='Top 10 Stadiums By Rank' w='17658' x='710' y='1487'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='37678' id='11' name='Top 10 Stadiums By Capacity' w='18288' x='18368' y='1487'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='37678' id='12' name='Stadiums Location By Regions' w='37986' x='36656' y='1487'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone fixed-size='101' h='59348' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='9671' x='89619' y='39165'>
+                <zone h='38290' id='8' name='Geographical Distribution of Stadiums' pane-specification-id='0' param='[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]' type-v2='color' w='9671' x='89619' y='39165'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1550' minheight='1550' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='16' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97026' id='15' param='vert' type-v2='layout-flow' w='98580' x='710' y='1487'>
+                <zone fixed-size='280' h='37678' id='10' is-fixed='true' name='Top 10 Stadiums By Rank' w='17658' x='710' y='1487'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='37678' id='11' is-fixed='true' name='Top 10 Stadiums By Capacity' w='18288' x='18368' y='1487'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='37678' id='12' is-fixed='true' name='Stadiums Location By Regions' w='37986' x='36656' y='1487'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='37678' id='9' is-fixed='true' name='Top Stadiums By Capacity ' w='24648' x='74642' y='1487'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='59348' id='3' is-fixed='true' name='Geographical Distribution of Stadiums' w='88909' x='710' y='39165'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='38290' id='8' name='Geographical Distribution of Stadiums' pane-specification-id='0' param='[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]' type-v2='color' w='9671' x='89619' y='39165'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{77875DBB-D69E-4002-A955-3243DBBDB21C}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Stadiums Location By Regions'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C5F00AF0-1490-48AF-8EA5-60944C9F80E8}' />
+    </window>
+    <window class='worksheet' name='Top 10 Stadiums By Capacity'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BAD0305B-C6AF-44A1-B468-8CF4089834DE}' />
+    </window>
+    <window class='worksheet' name='Top 10 Stadiums By Rank'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EE325362-2059-42AB-AB34-702C303BC9D8}' />
+    </window>
+    <window class='worksheet' name='Top Stadiums By Capacity '>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.09b9rka1n3q36o1clh6td15n720y].[none:region:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{DC23063E-4C96-4AF9-AB25-DDB5B47150BC}' />
+    </window>
+    <window class='worksheet' name='Geographical Distribution of Stadiums'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{CEE96B51-B243-4DED-B5E5-0990C937EE8F}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Geographical Distribution of Stadiums'>
+          <zoom type='entire-view' />
+          <default-map-tool-selection tool='1' />
+        </viewpoint>
+        <viewpoint name='Stadiums Location By Regions'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Top 10 Stadiums By Capacity' />
+        <viewpoint name='Top 10 Stadiums By Rank' />
+        <viewpoint name='Top Stadiums By Capacity ' />
+      </viewpoints>
+      <active id='3' />
+      <device-preview visible='true' />
+      <simple-id uuid='{7E8182DE-E06B-4767-A8DF-0AFAFD9BD586}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+      awsbnh21hgAAAABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
