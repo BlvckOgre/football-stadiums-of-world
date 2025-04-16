@@ -96,6 +96,8 @@ Component	Tools/Tech Stack
 
 **Processed Data Storage:**    Azure Data Lake Gen2
 
+**Terraform**
+
 **EDA & Notebooks:**   	JupyterLab, Streamlit (optional)
 
 **Deployment:**    	GitHub, Docker Hub
@@ -127,16 +129,15 @@ Generate stats for sports journalists or social media analysis.
 # Table of Contents
 
 1. [System Architecture](#system-architecture)
-2. [Requirements](#requirements)
-3. [Project Folder Structure](#project-folder-structure)
-4. [Environment Setup](#environment-setup)
-5. [Infrastructure Deployment (Terraform)](#infrastructure-deployment-terraform)
-6. [Data Pipeline Setup (Airflow)](#data-pipeline-setup-airflow)
-7. [ETL Flow](#etl-flow)
-8. [Analytics & Dashboard](#analytics--dashboard)
-9. [Running the Code With Docker](#running-the-code-with-docker)
-10. [How It Works](#how-it-works)
-11. [Video](#video)
+2. [Project Folder Structure](#project-folder-structure)
+3. [Environment Setup](#environment-setup)
+4. [Infrastructure Deployment (Terraform)](#infrastructure-deployment-terraform)
+5. [Data Pipeline Setup (Airflow)](#data-pipeline-setup-airflow)
+6. [ETL Flow](#etl-flow)
+7. [Analytics & Dashboard](#analytics--dashboard)
+8. [Running the Code With Docker](#running-the-code-with-docker)
+9. [How It Works](#how-it-works)
+
 
 # System Architecture
 ![system_architecture.png](assets%2Fsystem_architecture.png)
@@ -256,11 +257,6 @@ Generate stats for sports journalists or social media analysis.
 
 **Data:** Sample .csv or .json test files can be placed in /data for local DAG and script validation.
 
-# Requirements
-- Python 3.9 (minimum)
-- Docker
-- PostgreSQL
-- Apache Airflow 2.6 (minimum)
 
 # Project Folder Structure
    ```bash
