@@ -375,6 +375,9 @@ Connect Power BI, Tableau, or Looker Studio to:
 
 Use assets/ for logos or visual templates.
 
+![Dashboard.PNG](assets%2FDashboard.PNG)
+>for a more interactive dashboard relaunch assets/FootballDataEngineering-Dashboard.twbx in tableau
+
 #### Here’s a step-by-step breakdown of how to relaunch a .twbx file (Tableau Packaged Workbook) so a third party can view and interact with your dashboard:
 
 ### What is a .twbx file?
@@ -391,7 +394,7 @@ A .twbx file contains the Tableau workbook (.twb) along with the data sources, i
 
    Launch Tableau Public Desktop or Tableau Desktop
 
-   Go to File > Open, select your football-dashboard.twbx file
+   Go to File > Open, select your FootballDataEngineering-Dashboard.twbx file
 
 ### Step 3: Publish to Tableau Public
 
@@ -417,7 +420,7 @@ A .twbx file contains the Tableau workbook (.twb) along with the data sources, i
 
 ### Step 2: Open .twbx in Tableau Desktop
 
-   Go to File > Open, select your football-dashboard.twbx
+   Go to File > Open, select your FootballDataEngineering-Dashboard.twbx
 
 ### Step 3: Sign In to Tableau Server/Cloud
 
@@ -633,7 +636,7 @@ A .twbx file contains the Tableau workbook (.twb) along with the data sources, i
 
    Launch Tableau Public Desktop or Tableau Desktop
 
-   Go to File > Open, select your football-dashboard.twbx file
+   Go to File > Open, select your FootballDataEngineering-Dashboard.twbx file
 
 ### Step 3: Publish to Tableau Public
 
@@ -659,7 +662,7 @@ A .twbx file contains the Tableau workbook (.twb) along with the data sources, i
 
 ### Step 2: Open .twbx in Tableau Desktop
 
-   Go to File > Open, select your football-dashboard.twbx
+   Go to File > Open, select your FootballDataEngineering-Dashboard.twbx
 
 ### Step 3: Sign In to Tableau Server/Cloud
 
