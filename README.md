@@ -25,11 +25,11 @@ A reproducible and extensible solution using open-source tools.
 
 ## 2.Data Cleaning & Transformation:
 
-   Parse and clean HTML tables into standardized pandas DataFrames.
+  * Parse and clean HTML tables into standardized pandas DataFrames.
 
-   Normalize data formats (dates, scores, club names, etc.) for consistency.
+  * Normalize data formats (dates, scores, club names, etc.) for consistency.
 
-   Perform feature engineering (e.g., goal differences, points per game).
+  * Perform feature engineering (e.g., goal differences, points per game).
 
 ## 3.Data Storage:
 
@@ -39,36 +39,36 @@ A reproducible and extensible solution using open-source tools.
 
 ## 4.Pipeline Orchestration:
 
-    Build DAGs in Apache Airflow 2.6 to automate:
-   Scraping data from Wikipedia on a schedule.
+Build DAGs in Apache Airflow 2.6 to automate:
+  * Scraping data from Wikipedia on a schedule.
    
-   Cleaning and transforming data.
+  * Cleaning and transforming data.
    
-   Loading data into PostgreSQL.
+  * Loading data into PostgreSQL.
    
     Handle dependencies, retries, logging, and task monitoring.
 
 ## 5.Containerization:
 
-    Use Docker to containerize:
+Use Docker to containerize:
 
-   Python scraper and transformer.
+  * Python scraper and transformer.
    
-   PostgreSQL instance.
+  * PostgreSQL instance.
    
-   Apache Airflow environment.
+  * Apache Airflow environment.
 
     Define services using docker-compose.
 
 ## 6.Exploratory Data Analysis (EDA):
 
-    Use Jupyter Notebooks or Streamlit to explore:
+Use Jupyter Notebooks or Streamlit to explore:
 
-   Team performance trends.
+  * Team performance trends.
    
-   Historical league outcomes.
+  * Historical league outcomes.
    
-   Goal scoring patterns.
+  * Goal scoring patterns.
 
 ## 7.Documentation & Automation:
 
@@ -82,25 +82,25 @@ A reproducible and extensible solution using open-source tools.
 # Tools and Technologies:
 Component	Tools/Tech Stack
 
-Language:   	Python 3.9
+**Language:**   	Python 3.9
 
-Web Scraping:   	BeautifulSoup, Requests
+**Web Scraping:**   	BeautifulSoup, Requests
 
-Orchestration:   	Apache Airflow 2.6
+**Orchestration:**   Apache Airflow 2.6
 
-Raw Data Storage:   	PostgreSQL 14+
+**Raw Data Storage:**   	PostgreSQL 14+
 
-Containerization:   	Docker, Docker Compose
+**Containerization:**   	Docker, Docker Compose
 
-Data Processing:   	Pandas
+**Data Processing:**   	Pandas
 
-Processed Data Storage:    Azure Data Lake Gen2
+**Processed Data Storage:**    Azure Data Lake Gen2
 
-EDA & Notebooks:   	JupyterLab, Streamlit (optional)
+**EDA & Notebooks:**   	JupyterLab, Streamlit (optional)
 
-Deployment:    	GitHub, Docker Hub
+**Deployment:**    	GitHub, Docker Hub
 
-Monitoring:    	Airflow UI, Logs
+**Monitoring:**    	Airflow UI, Logs
 
 # Expected Deliverables:
 Cleaned and structured PostgreSQL database containing global football data.
@@ -128,45 +128,133 @@ Generate stats for sports journalists or social media analysis.
 
 1. [System Architecture](#system-architecture)
 2. [Requirements](#requirements)
-3. [Getting Started](#getting-started)
-4. [Running the Code With Docker](#running-the-code-with-docker)
-5. [How It Works](#how-it-works)
-6. [Video](#video)
+3. [Folder Structure](#folder-structure)
+4. [Environment Setup](#environment-setup)
+5. [Infrastructure Deployment (Terraform)](#infrastructure-deployment-terraform)
+6. [Data Pipeline Setup (Airflow)](#data-pipeline-setup-airflow)
+7. [ETL Flow](#etl-flow)
+8. [Analytics & Dashboard](#analytics--dashboard)
+9. [Running the Code With Docker](#running-the-code-with-docker)
+10. [How It Works](#how-it-works)
+11. [Video](#video)
 
 # System Architecture
 ![system_architecture.png](assets%2Fsystem_architecture.png)
 
 # System Architecture Breakdown
-### 1. Data Source: Wikipedia
-You are scraping football club data from Wikipedia using Python + BeautifulSoup in an Airflow DAG.
+### 1. Data Ingestion Layer – Web Scraping (Python 3.9)
 
-Data is cleaned and pushed into a PostgreSQL database (containerized via Docker).
+**Tool:** Python 3.9
 
-### 2. ETL Orchestration: Apache Airflow
-Runs in Docker.
+**Process:** A custom script scrapes structured football club data from Wikipedia.
 
-DAGs schedule web scraping and push data to PostgreSQL daily.
+**Output:** JSON or CSV files
 
-Airflow acts as the controller of the entire data pipeline.
+**Reasoning:** Wikipedia provides semi-structured and regularly updated data, ideal for scraping.
 
-### 3. Storage: Azure Data Lake Gen2
-PostgreSQL acts as staging; final structured data is moved to Azure Data Lake Gen2 via:
+### 2. Orchestration & Workflow Management – Apache Airflow (Dockerized)
 
-   Azure Data Factory (ADF) pipeline, which connects to PostgreSQL and writes to ADLS in CSV/Parquet.
+**Tool:** Apache Airflow 2.6 (running inside Docker)
 
-### 4. Processing Layer: Databricks
-Connects to ADLS Gen2, reads raw files, cleans them using PySpark, aggregates, and writes back processed data.
+**Scheduler:** Executes DAGs to:
 
-### 5. BI Layer: Tableau / Power BI / Looker Studio
-Directly connects to Azure Data Lake Gen2 or processed data output from Databricks.
+* Run the scraper daily
 
-Dashboards visualize:
+* Save data to Azure Data Lake
 
-   Number of clubs per country.
+* Trigger Data Factory pipelines
+  
+**Docker Use:** Containers isolate Postgres (metadata DB), Airflow scheduler, webserver, and workers.
 
-   Geographic distribution.
+**Logging:** Logs are written to mounted local volume for monitoring.
 
-   Time-based trends if applicable.
+### 3. Intermediate Storage – Azure Data Lake Gen2 (Raw Layer)
+* **Storage:** Raw files from scraping land here.
+
+* **Naming Convention:** Timestamped folders and file paths for version control.
+
+* **Access Control:** Managed via Azure RBAC & Storage Account Access Keys.
+
+### 4. Data Processing & Transformation – Azure Data Factory (ADF)
+
+**Tool:** Azure Data Factory pipeline
+
+**Tasks:**
+
+   * Cleans and normalizes scraped football data
+
+   * Converts semi-structured to structured format (e.g., Parquet)
+
+   * Moves transformed data to the curated layer
+
+**Trigger:** Initiated via Airflow after raw data is uploaded
+
+### 5. Processed Storage – Azure Data Lake Gen2 (Curated Layer)
+* **Storage:** Cleaned and structured datasets stored for analytics
+
+* **Purpose:** This serves as the trusted source for BI tools and Databricks
+
+* **File Format:** Partitioned Parquet for optimized querying
+
+### 6. Analytics & Advanced Transformations – Azure Databricks
+
+**Tool:** Databricks notebook or pipeline
+
+**Operations:**
+
+   * Aggregations (e.g., Top clubs by revenue, trophies, attendance)
+
+   * Trend analysis across continents or leagues
+
+   * Feature engineering if ML models are added in future
+
+**Connection:** Reads from curated Data Lake
+
+### 7. Business Intelligence Layer – Tableau, Power BI, Looker Studio
+
+**Integration Options:**
+
+   * Direct connection to Azure Data Lake using ODBC drivers or Synapse views
+
+   * Alternatively connect to Databricks SQL endpoints
+
+**Goal:** Build interactive dashboards showcasing:
+
+   * Club rankings
+
+   * Year-over-year growth
+
+   * Revenue vs. trophies correlation
+
+   * League comparisons (Africa, Europe, etc.)
+
+### 8. Infrastructure as Code – Terraform
+
+**Tool:** Terraform
+
+**Purpose:** Automate deployment of Azure services:
+
+   * Resource Group
+
+   * Data Lake Gen2 Storage Accounts
+
+   * Azure Data Factory instance
+
+   * Azure Databricks workspace
+
+   * Networking & IAM policies
+
+**Location in Architecture:** Terraform acts **outside** the data pipeline — it’s used at the **infrastructure provisioning stage, before** deploying the actual data logic (Airflow, scripts, ADF).
+
+### 9. Local Development & Testing
+
+**Tools:**
+
+   * Jupyter notebooks (in /notebooks) for early-stage transformation testing
+
+   * env and .env.example files to manage secrets locally
+
+**Data:** Sample .csv or .json test files can be placed in /data for local DAG and script validation.
 
 # Requirements
 - Python 3.9 (minimum)
@@ -177,25 +265,29 @@ Dashboards visualize:
 # Project Folder Structure
    ```bash
 
-football_data_pipeline/
+football-stadiums-of-world/
+├── assets/                        # Images or Tableau dashboards if exported as static
+├── dags/                          # Airflow DAGs
+├── data/                          # Local storage of scraped/raw datasets
+├── pipelines/                     # ETL logic, scripts for transformations
+├── script/                        # SQL scripts, helper functions
 │
-├── docker/
-│   ├── airflow/                  # Airflow config & DAGs
-│   │   ├── dags/
-│   │   └── docker-compose.yml
-│   └── postgres/                 # PostgreSQL config
-│       └── init.sql
+├── terraform/                     # Terraform IaC for provisioning Azure resources
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   ├── providers.tf
+│   └── terraform.tfvars
 │
-├── data_scraper/                # Python scraping scripts
-│   ├── scrape_wikipedia.py
-│   └── utils.py
+├── docker-compose.yml             # For local containerized dev (Airflow, Postgres, etc.)
+├── requirements.txt               # Python dependencies
+├── script.sql                     # DB schema setup
+├── README.md                      # Project description and usage
 │
-├── notebooks/                   # Databricks notebooks
-│   └── transform_football_data.py
-│
-├── adf/                         # Azure Data Factory config (JSON)
-├── tableau/                     # Tableau workbook (.twbx)
-└── README.md
+├── FootballDataEngineering Dashboard.twb      # Tableau workbook
+├── football dashboard.twbx                     # Tableau packaged workbook (includes data)
+└── --FootballDataEngineering Dashboard_63799... # Likely a temp/autosave file (can clean up)
+
    ```
 
 # Getting Started
