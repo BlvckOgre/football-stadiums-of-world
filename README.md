@@ -294,7 +294,7 @@ football-stadiums-of-world/
 
 ```bash
 
-git clone https://github.com/yourusername/football_data_engineering_project.git
+git clone https://github.com/BlvckOgre/football_data_engineering_project.git
 cd football_data_engineering_project
 ```
 2. Setup Python virtual environment
@@ -454,7 +454,7 @@ A .twbx file contains the Tableau workbook (.twb) along with the data sources, i
 
 1. Clone the repository.
    ```bash
-   git clone https://github.com/airscholar/FootballDataEngineering.git
+   git clone https://github.com/BlvckOgre/FootballDataEngineering.git
    ```
 
 2. Install Python dependencies.
